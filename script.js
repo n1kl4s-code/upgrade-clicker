@@ -66,7 +66,7 @@ function upgradeButton() {
     } else {
         buttonCircle.removeEventListener("click", clickedButton);
         buttonCircle.removeEventListener("touchstart", clickedButton);
-        buttonCircle.textContent = "RESET";
+        buttonEarningsParagraph.textContent = "RESET";
         if (navigator.userAgentData.mobile) {
             buttonCircle.addEventListener("touchstart", resetProgress);
         } else {
