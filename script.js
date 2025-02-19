@@ -4,6 +4,7 @@ const backCircle = document.querySelector("#back-circle");
 const buttonCircle = document.querySelector("#button-circle");
 const buttonEarningsParagraph = document.querySelector("#btn-earnings");
 const buttonEarningDisplayDiv = document.querySelector("#earnings-display-div");
+const buttonLevelParagraph = document.querySelector("#btn-level");
 
 let buttonLevel, buttonColor, buttonEarnings, buttonUpgradeCost, progress;
 
@@ -124,6 +125,15 @@ if (buttonEarningsParagraph) {
     buttonEarningsParagraph.textContent = buttonEarnings;
 };
 
+if (buttonLevelParagraph) {
+    buttonLevelParagraph.style.setProperty("width", window.innerWidth / 4 * 0.965 * 0.5);
+    buttonLevelParagraph.style.setProperty("height", "fit-content");
+    buttonLevelParagraph.textContent = buttonLevelParagraph.textContent = `lvl ${buttonLevel}`;
+    buttonLevelParagraph.style.setProperty("text-align", "center");
+    buttonLevelParagraph.style.setProperty("text-shadow", `0px 0px ${window.innerHeight * 0.025}px ${buttonLevelParagraph.style.getPropertyValue("color")}`);
+    buttonLevelParagraph.style.setProperty("font-size", window.innerHeight * 0.035 + "px");
+}
+
 function clickedButton() {
     let progressIncrease = (buttonUpgradeCost / buttonEarnings) / 1000;
     progress += progressIncrease;
@@ -139,10 +149,11 @@ function clickedButton() {
     if (oldClonedDiv) {
         oldClonedDiv.remove();
     };
+    buttonLevelParagraph.textContent = `lvl ${buttonLevel}`;
     clonedDiv.style.setProperty("width", window.innerWidth / 20 + "px");
     clonedDiv.style.setProperty("height", "fit-content");
     clonedDiv.style.setProperty("color", document.documentElement.style.getPropertyValue("--color"));
-    clonedDiv.style.setProperty("text-shadow", `0px 0px ${window.innerHeight * 0.05}px ${document.documentElement.style.getPropertyValue("--color")}`);
+    clonedDiv.style.setProperty("text-shadow", `0px 0px ${window.innerHeight * 0.025}px ${document.documentElement.style.getPropertyValue("--color")}`);
     clonedDiv.style.setProperty("display", "flex");
     clonedDiv.style.setProperty("align-items", "center");
     clonedDiv.style.setProperty("justify-content", "center");
